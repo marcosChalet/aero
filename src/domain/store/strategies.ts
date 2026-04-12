@@ -206,6 +206,29 @@ export const STRATEGIES: Record<string, CategoryStrategy> = {
           `Gostaria de informar que este serviço possui uma taxa adicional de [VALOR DA TAXA] por trecho, que pode ser paga agora via cartão de crédito ou diretamente no aeroporto. Como o(a) senhor(a) prefere seguir?`,
       },
       {
+        id: "umnr_informations",
+        label: "Solicitação de dados para realizar a solicitação (M4)",
+        content: (_: Record<string, string>) =>
+          `Por favor, preencha, ou envie na sequência, as informações abaixo para a solicitação de Menor Desacompanhado (UMNR):
+
+          *Informações Gerais:*
+            E-mail:
+
+          *Dados do Responsável pela Entrega (Origem):*
+            Nome:
+            Sobrenome:
+            Telefone de Contato:
+
+          *Dados do Responsável pelo Recebimento (Destino):*
+            Nome:
+            Sobrenome:
+            Telefone de Contato:
+
+          ---
+          *Nota: Verifique se os dados conferem exatamente com os documentos de identificação que serão apresentados no aeroporto.*
+      `,
+      },
+      {
         id: "resolution_confirmation",
         label: "Inclusão do Serviço e Envio de Comprovante (M6)",
         content: (values: Record<string, string>) =>
