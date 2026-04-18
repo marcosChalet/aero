@@ -1,4 +1,4 @@
-import { Gender } from "../types/gender";
+import { Gender } from "../domain/types/gender";
 
 export const getGreeting = () => {
   const hour = new Date().getHours();

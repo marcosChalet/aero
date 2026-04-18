@@ -1,11 +1,14 @@
 import { ClipboardWithIcon } from "flowbite-react";
-import { AggregatorType } from "../domain/types/aggregator";
-import type { CategoryStrategy, Link } from "../domain/store/types";
+import {
+  AggregatorType,
+  type IServiceStrategy,
+  type StrategyLink,
+} from "../../../agentPanel/domain/models/strategy.types";
 
-export default function UsefulLinks({
+export default function UsefulLinksFlow({
   strategy,
 }: {
-  strategy: CategoryStrategy;
+  strategy: IServiceStrategy;
 }) {
   return (
     <div className="flex h-full w-full flex-col">
@@ -13,7 +16,7 @@ export default function UsefulLinks({
         Links Importantes
       </h2>
       <ul className="flex flex-col gap-1">
-        {strategy.links.map((link: Link) => (
+        {strategy.links.map((link: StrategyLink) => (
           <li
             key={link.id}
             className="relative cursor-pointer rounded-lg border border-gray-300 p-3 transition duration-300 hover:bg-gray-50"

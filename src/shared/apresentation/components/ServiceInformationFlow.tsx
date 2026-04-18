@@ -9,19 +9,20 @@ import {
   TimelineTime,
   TimelineTitle,
 } from "flowbite-react";
-import type { CategoryStrategy } from "../domain/store/types";
-import { useGlobalStore } from "../domain/store/useGlobalStore";
-import { Status } from "../domain/types/status";
+
+import { Status } from "../../../agentPanel/domain/types/status";
 import Input from "./ui/Input";
 import { HiArrowNarrowRight } from "react-icons/hi";
-import { Gender } from "../domain/types/gender";
+import { Gender } from "../../../agentPanel/domain/types/gender";
+import type { IServiceStrategy } from "../../../agentPanel/domain/models/strategy.types";
+import { useFlowStore } from "../../../agentPanel/application/store/useFlowStore";
 
-export default function ServiceSummary({
+export default function ServiceInformationFlow({
   strategy,
 }: {
-  strategy: CategoryStrategy;
+  strategy: IServiceStrategy;
 }) {
-  const { status, updateValue, values, logs } = useGlobalStore();
+  const { status, updateValue, values, logs } = useFlowStore();
 
   return (
     <div className="flex h-full w-full flex-col">

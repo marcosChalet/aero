@@ -1,10 +1,10 @@
-import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import type { GlobalState, GlobalActions } from "./types";
-import { Status } from "../types/status";
-import { Gender } from "../types/gender";
+import { create } from "zustand";
+import type { FlowActions, FlowState } from "../../domain/store/flow.types";
+import { Gender } from "../../domain/types/gender";
+import { Status } from "../../domain/types/status";
 
-export const useGlobalStore = create<GlobalState & GlobalActions>()(
+export const useFlowStore = create<FlowState & FlowActions>()(
   immer((set) => ({
     currentCategory: "REBOOKING",
     values: { gender: Gender.FEMALE },

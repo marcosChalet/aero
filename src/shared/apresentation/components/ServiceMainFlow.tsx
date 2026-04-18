@@ -1,13 +1,13 @@
 import { ClipboardWithIcon } from "flowbite-react";
-import type { CategoryStrategy } from "../domain/store/types";
-import { useGlobalStore } from "../domain/store/useGlobalStore";
+import type { IServiceStrategy } from "../../../agentPanel/domain/models/strategy.types";
+import { useFlowStore } from "../../../agentPanel/application/store/useFlowStore";
 
-export default function ServiceFlow({
+export default function ServiceMainFlow({
   strategy,
 }: {
-  strategy: CategoryStrategy;
+  strategy: IServiceStrategy;
 }) {
-  const { values, copiedScripts, setAsCopiedScript } = useGlobalStore();
+  const { values, copiedScripts, setAsCopiedScript } = useFlowStore();
 
   return (
     <div className="h-full">
