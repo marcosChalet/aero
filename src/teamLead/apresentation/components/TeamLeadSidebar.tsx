@@ -11,7 +11,7 @@ import SidebarSh from "../../../shared/apresentation/components/SidebarSh";
 const sidebarItems: SidebarItemSh[] = [
   { icon: HiChartPie, title: "Dashboard", linkTo: "dashboard" },
   { icon: HiViewBoards, title: "kanban", linkTo: "kanban" },
-  { icon: HiUser, title: "Equipe", linkTo: "team" },
+  { icon: HiUser, title: "Equipes", linkTo: "manage-teams" },
   { icon: HiClipboardCopy, title: "Macros", linkTo: "macros" },
 ];
 
