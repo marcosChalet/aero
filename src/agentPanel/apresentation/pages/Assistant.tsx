@@ -5,13 +5,15 @@ import Category from "../../../shared/apresentation/components/Category";
 import ServiceMainFlow from "../../../shared/apresentation/components/ServiceMainFlow";
 import ServiceInformationFlow from "../../../shared/apresentation/components/ServiceInformationFlow";
 import UsefulLinksFlow from "../../../shared/apresentation/components/UsefulLinksFlow";
+import Menu from "../../../shared/apresentation/components/Menu";
 
 export default function Assistant() {
   const { currentCategory, setCategory } = useFlowStore();
   const strategy = ServiceStrategies[currentCategory];
 
   return (
-    <main className="mx-2 grid h-screen grid-rows-[80px_auto] overflow-hidden bg-[#FAF9F6]">
+    <main className="grid h-screen grid-rows-[80px_auto] overflow-hidden bg-[#FAF9F6]">
+      <Menu />
       <section className="flex h-full w-full items-center justify-start">
         <h1 className="ml-9 text-center text-3xl font-bold capitalize">
           Página de assistente virtual
