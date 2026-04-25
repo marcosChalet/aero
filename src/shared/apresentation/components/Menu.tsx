@@ -35,7 +35,7 @@ export default function Menu() {
           <Link to="/">
             <NavbarLink as={"span"}>Home</NavbarLink>
           </Link>
-          <Link to="/leader/dashboard">
+          <Link to="/admin/dashboard">
             <NavbarLink as={"span"}>Admin</NavbarLink>
           </Link>
           <NavbarLink>
@@ -122,13 +122,13 @@ export default function Menu() {
               </ul>
             </MegaMenuDropdown>
           </NavbarLink>
-          <Link to="/leader/team">
+          <Link to="/admin/team">
             <NavbarLink as={"span"}>Time</NavbarLink>
           </Link>
-          <Link to="/leader/contact">
+          <Link to="/admin/contact">
             <NavbarLink as={"span"}>Contato</NavbarLink>
           </Link>
-          <Link to="/leader/news">
+          <Link to="/admin/news">
             <NavbarLink as={"span"}>Novidades</NavbarLink>
           </Link>
         </NavbarCollapse>
