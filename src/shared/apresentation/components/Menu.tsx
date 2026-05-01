@@ -14,7 +14,7 @@ export default function Menu() {
     <div className="z-10 h-16 w-full">
       <MegaMenu className="w-full">
         <Link to="/">
-          <NavbarBrand>
+          <NavbarBrand as={"span"}>
             <img alt="" src="/favicon.svg" className="mr-3 h-6 sm:h-9" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               AЄRO

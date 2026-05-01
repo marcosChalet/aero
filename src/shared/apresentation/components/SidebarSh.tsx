@@ -24,8 +24,9 @@ export default function SidebarSh({ items }: { items: SidebarItemSh[] }) {
       <SidebarItems className="">
         <SidebarItemGroup>
           {items.map((item: SidebarItemSh) => (
-            <Link to={item.linkTo}>
+            <Link to={item.linkTo} key={item.linkTo}>
               <SidebarItem
+                as={"div"}
                 className={`font-semibold text-slate-700! hover:bg-black! hover:text-[#FAF9F6]! ${item.className}`}
                 icon={item.icon}
               >
