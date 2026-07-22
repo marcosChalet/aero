@@ -81,15 +81,15 @@ export const WheelchairService: IServiceStrategy = {
       type: AggregatorType.BLUE,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data");
-    if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data");
+  //   if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
 
-    if (copiedScripts.includes("battery_rules"))
-      completed.push("battery_info_not_copied");
-    if (copiedScripts.includes("transparency_time"))
-      completed.push("checkin_time_not_copied");
-    return completed;
-  },
+  //   if (copiedScripts.includes("battery_rules"))
+  //     completed.push("battery_info_not_copied");
+  //   if (copiedScripts.includes("transparency_time"))
+  //     completed.push("checkin_time_not_copied");
+  //   return completed;
+  // },
 };

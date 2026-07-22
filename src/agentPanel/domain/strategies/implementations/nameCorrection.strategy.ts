@@ -77,14 +77,14 @@ export const NameCorrectionService: IServiceStrategy = {
       type: AggregatorType.GREEN,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data");
-    if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
-    if (values.correctName?.length > 3) completed.push("name_validated");
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data");
+  //   if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
+  //   if (values.correctName?.length > 3) completed.push("name_validated");
 
-    if (copiedScripts.includes("correction_rules"))
-      completed.push("rules_not_copied");
-    return completed;
-  },
+  //   if (copiedScripts.includes("correction_rules"))
+  //     completed.push("rules_not_copied");
+  //   return completed;
+  // },
 };

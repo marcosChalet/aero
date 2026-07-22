@@ -93,17 +93,17 @@ export const PetService: IServiceStrategy = {
       type: AggregatorType.GREEN,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data");
-    if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
-    if (values.petWeight?.length > 0)
-      completed.push("weight_validated", "weight_empty");
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data");
+  //   if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
+  //   if (values.petWeight?.length > 0)
+  //     completed.push("weight_validated", "weight_empty");
 
-    if (copiedScripts.includes("pet_proposal_rules"))
-      completed.push("kennel_rules_not_copied");
-    if (copiedScripts.includes("pet_fees"))
-      completed.push("pet_fee_not_copied");
-    return completed;
-  },
+  //   if (copiedScripts.includes("pet_proposal_rules"))
+  //     completed.push("kennel_rules_not_copied");
+  //   if (copiedScripts.includes("pet_fees"))
+  //     completed.push("pet_fee_not_copied");
+  //   return completed;
+  // },
 };

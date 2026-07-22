@@ -113,19 +113,19 @@ export const MAASService: IServiceStrategy = {
       type: AggregatorType.YELLOW,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data");
-    if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
-    if (values.maasCategory?.length > 3)
-      completed.push("category_validated", "category_empty");
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data");
+  //   if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
+  //   if (values.maasCategory?.length > 3)
+  //     completed.push("category_validated", "category_empty");
 
-    if (copiedScripts.includes("assistance_rules_dynamic")) {
-      completed.push("safety_rules_not_copied");
-    }
-    if (copiedScripts.includes("transparency_time")) {
-      completed.push("time_alert_not_copied");
-    }
-    return completed;
-  },
+  //   if (copiedScripts.includes("assistance_rules_dynamic")) {
+  //     completed.push("safety_rules_not_copied");
+  //   }
+  //   if (copiedScripts.includes("transparency_time")) {
+  //     completed.push("time_alert_not_copied");
+  //   }
+  //   return completed;
+  // },
 };

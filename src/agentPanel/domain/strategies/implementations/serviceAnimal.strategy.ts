@@ -86,15 +86,15 @@ export const ServiceAnimalService: IServiceStrategy = {
       type: AggregatorType.YELLOW,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data");
-    if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data");
+  //   if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
 
-    if (copiedScripts.includes("route_and_rules"))
-      completed.push("route_check_not_copied");
-    if (copiedScripts.includes("medical_forms"))
-      completed.push("forms_not_copied");
-    return completed;
-  },
+  //   if (copiedScripts.includes("route_and_rules"))
+  //     completed.push("route_check_not_copied");
+  //   if (copiedScripts.includes("medical_forms"))
+  //     completed.push("forms_not_copied");
+  //   return completed;
+  // },
 };

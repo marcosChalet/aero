@@ -3,20 +3,46 @@ import { create } from "zustand";
 import type { FlowActions, FlowState } from "../../domain/store/flow.types";
 import { Gender } from "../../domain/types/gender";
 import { Status } from "../../domain/types/status";
+import { mockDbResponseLATAM } from "../../apresentation/pages/mock.agent";
+
+const getInitialState = () => {
+  const context: Record<string, boolean> = {};
+
+  mockDbResponseLATAM.map((item) => {
+    item.alerts.forEach((alert) => {
+      context[alert.id] = false;
+    });
+
+    item.scripts.forEach((script) => {
+      context[script.id] = false;
+    });
+    item.inputs.forEach((input) => {
+      context[input.id] = false;
+    });
+  });
+
+  return context;
+};
 
 export const useFlowStore = create<FlowState & FlowActions>()(
   immer((set) => ({
-    currentCategory: "REBOOKING",
+    currentCategory: "account",
     values: { gender: Gender.FEMALE },
+    context: getInitialState(),
     status: Status.IN_PROGRESS,
     logs: [],
     copiedScripts: [],
     completedChecklistIds: [],
 
+    updateContext: (key, value) =>
+      set((state) => {
+        state.context[key.value] = value;
+      }),
+
     setAsCopiedScript: (id) =>
       set((state) => {
-        if (!state.copiedScripts.includes(id)) {
-          state.copiedScripts.push(id);
+        if (!state.copiedScripts.includes(id.value)) {
+          state.copiedScripts.push(id.value);
         }
       }),
 
@@ -27,7 +53,7 @@ export const useFlowStore = create<FlowState & FlowActions>()(
 
     updateValue: (id, value) =>
       set((state) => {
-        state.values[id] = value;
+        state.values[id.value] = value;
       }),
 
     resetStore: () =>

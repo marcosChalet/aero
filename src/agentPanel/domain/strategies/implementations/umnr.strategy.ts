@@ -117,19 +117,19 @@ export const UMNRService: IServiceStrategy = {
       type: AggregatorType.YELLOW,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data", "name_empty");
-    if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
-    if (values.minorAge?.length > 0)
-      completed.push("age_validated", "age_empty");
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data", "name_empty");
+  //   if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
+  //   if (values.minorAge?.length > 0)
+  //     completed.push("age_validated", "age_empty");
 
-    if (copiedScripts.includes("service_rules")) {
-      completed.push("rules_script_not_copied");
-    }
-    if (copiedScripts.includes("fare_and_fees")) {
-      completed.push("fee_script_not_copied");
-    }
-    return completed;
-  },
+  //   if (copiedScripts.includes("service_rules")) {
+  //     completed.push("rules_script_not_copied");
+  //   }
+  //   if (copiedScripts.includes("fare_and_fees")) {
+  //     completed.push("fee_script_not_copied");
+  //   }
+  //   return completed;
+  // },
 };

@@ -14,15 +14,13 @@ import { Status } from "../../../agentPanel/domain/types/status";
 import Input from "./ui/Input";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Gender } from "../../../agentPanel/domain/types/gender";
-import type { IServiceStrategy } from "../../../agentPanel/domain/models/strategy.types";
 import { useFlowStore } from "../../../agentPanel/application/store/useFlowStore";
+import ID from "../../value-objects/ID";
+import useAgentSetup from "../../../agentPanel/apresentation/hooks/useAgentSetup";
 
-export default function ServiceInformationFlow({
-  strategy,
-}: {
-  strategy: IServiceStrategy;
-}) {
-  const { status, updateValue, values, logs } = useFlowStore();
+export default function ServiceInformationFlow() {
+  const { status, updateValue, updateContext, values, logs } = useFlowStore();
+  const { agentInputs } = useAgentSetup();
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -41,14 +39,21 @@ export default function ServiceInformationFlow({
       </div>
 
       <div className="3xl:text-lg flex w-full flex-wrap gap-3">
-        {strategy.inputs.map(({ id, label }) => (
+        {agentInputs.map((agentInput) => (
           <Input
-            key={id}
-            label={label}
+            key={agentInput.id.value}
+            label={agentInput.label}
             className="w-full"
             inputClassName="capitalize"
             labelClassName="min-w-17 select-none"
-            onChange={(e) => updateValue(id, e.target.value)}
+            onChange={(e) => {
+              const id = agentInput.id;
+              const value = e.target.value;
+
+              updateValue(id, value);
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              updateContext(id, agentInput.validate(value as any)); //////////////////
+            }}
           />
         ))}
       </div>
@@ -62,7 +67,7 @@ export default function ServiceInformationFlow({
               value="woman"
               className="peer sr-only"
               checked={values.gender === Gender.FEMALE}
-              onChange={() => updateValue("gender", Gender.FEMALE)}
+              onChange={() => updateValue(new ID("gender"), Gender.FEMALE)}
             />
             <div className="h-full w-full scale-0 rounded-full bg-blue-600 transition-transform peer-checked:scale-100"></div>
           </div>
@@ -79,7 +84,7 @@ export default function ServiceInformationFlow({
               value="man"
               className="peer sr-only"
               checked={values.gender === Gender.MALE}
-              onChange={() => updateValue("gender", Gender.MALE)}
+              onChange={() => updateValue(new ID("gender"), Gender.MALE)}
             />
             <div className="h-full w-full scale-0 rounded-full bg-blue-600 transition-transform peer-checked:scale-100"></div>
           </div>
@@ -96,7 +101,7 @@ export default function ServiceInformationFlow({
               value="unspecified"
               className="peer sr-only"
               checked={values.gender === Gender.OTHER}
-              onChange={() => updateValue("gender", Gender.OTHER)}
+              onChange={() => updateValue(new ID("gender"), Gender.OTHER)}
             />
             <div className="h-full w-full scale-0 rounded-full bg-blue-600 transition-transform peer-checked:scale-100" />
           </div>

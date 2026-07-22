@@ -1,24 +1,19 @@
 import { ClipboardWithIcon } from "flowbite-react";
-import {
-  AggregatorType,
-  type IServiceStrategy,
-  type StrategyLink,
-} from "../../../agentPanel/domain/models/strategy.types";
+import useAgentSetup from "../../../agentPanel/apresentation/hooks/useAgentSetup";
+import { TagColor } from "../../domain/types/TagColor";
 
-export default function UsefulLinksFlow({
-  strategy,
-}: {
-  strategy: IServiceStrategy;
-}) {
+export default function UsefulLinksFlow() {
+  const { agentLinks } = useAgentSetup();
+
   return (
     <div className="flex h-full w-full flex-col">
       <h2 className="mb-7 text-xl font-bold text-gray-800 select-none">
         Links Importantes
       </h2>
       <ul className="flex flex-col gap-1">
-        {strategy.links.map((link: StrategyLink) => (
+        {agentLinks.map((link) => (
           <li
-            key={link.id}
+            key={link.id.value}
             className="relative cursor-pointer rounded-lg border border-gray-300 p-3 transition duration-300 hover:bg-gray-50"
           >
             <a
@@ -30,11 +25,11 @@ export default function UsefulLinksFlow({
             </a>
             <div
               className={`3xl:h-3 3xl:w-3 absolute top-1 left-1 h-2 w-2 animate-pulse rounded-full ${
-                link.type === AggregatorType.BLUE
+                link.type === TagColor.BLUE
                   ? "bg-sky-500"
-                  : link.type === AggregatorType.GREEN
+                  : link.type === TagColor.GREEN
                     ? "bg-green-600"
-                    : link.type === AggregatorType.YELLOW
+                    : link.type === TagColor.YELLOW
                       ? "bg-yellow-300"
                       : "bg-sky-500"
               } `}

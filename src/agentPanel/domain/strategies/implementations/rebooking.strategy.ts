@@ -122,18 +122,18 @@ export const RebookingService: IServiceStrategy = {
       type: AggregatorType.YELLOW,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data", "name_empty");
-    if (values.pnr?.length === 6)
-      completed.push("pnr_valid", "pnr_empty", "pnr_error");
-    if (
-      ["itinerary_proposal"].every((scriptId: string) =>
-        copiedScripts.includes(scriptId),
-      )
-    ) {
-      completed.push("itinerary_script_not_copied");
-    }
-    return completed;
-  },
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data", "name_empty");
+  //   if (values.pnr?.length === 6)
+  //     completed.push("pnr_valid", "pnr_empty", "pnr_error");
+  //   if (
+  //     ["itinerary_proposal"].every((scriptId: string) =>
+  //       copiedScripts.includes(scriptId),
+  //     )
+  //   ) {
+  //     completed.push("itinerary_script_not_copied");
+  //   }
+  //   return completed;
+  // },
 };

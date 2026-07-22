@@ -88,17 +88,17 @@ export const RefundService: IServiceStrategy = {
       type: AggregatorType.YELLOW,
     },
   ],
-  autoCheck: (values, copiedScripts) => {
-    const completed = [];
-    if (values.name?.length > 3) completed.push("has_data", "name_empty");
-    if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
+  // autoCheck: (values, copiedScripts) => {
+  //   const completed = [];
+  //   if (values.name?.length > 3) completed.push("has_data", "name_empty");
+  //   if (values.pnr?.length === 6) completed.push("pnr_valid", "pnr_empty");
 
-    if (copiedScripts.includes("retention_proposal")) {
-      completed.push("retention_script_not_copied");
-    }
-    if (copiedScripts.includes("transparency_rules")) {
-      completed.push("rules_script_not_copied");
-    }
-    return completed;
-  },
+  //   if (copiedScripts.includes("retention_proposal")) {
+  //     completed.push("retention_script_not_copied");
+  //   }
+  //   if (copiedScripts.includes("transparency_rules")) {
+  //     completed.push("rules_script_not_copied");
+  //   }
+  //   return completed;
+  // },
 };
