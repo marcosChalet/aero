@@ -40,7 +40,7 @@ export default function ServiceInformationFlow() {
         {agentInputs.map((agentInput) => (
           <Input
             key={agentInput.id.value}
-            label={agentInput.label}
+            label={agentInput.label.value}
             className="w-full"
             inputClassName="capitalize"
             labelClassName="min-w-17 select-none"

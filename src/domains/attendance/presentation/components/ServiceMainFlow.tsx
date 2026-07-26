@@ -22,7 +22,7 @@ export default function ServiceMainFlow() {
                 className="3xl:text-lg mt-2 rounded-sm bg-[#ff9a00]/10 p-2 text-sm text-gray-900 select-none"
               >
                 <b>⚠️ Alerta: </b>
-                {agentAlert.label}
+                {agentAlert.label.value}
               </div>
             ),
         )}
