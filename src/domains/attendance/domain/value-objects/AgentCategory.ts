@@ -1,4 +1,4 @@
-import type ID from "./ID";
+import type ID from "../../../../shared/domain/value-objects/ID";
 
 export interface IAgentCategoryVO {
   id: ID;

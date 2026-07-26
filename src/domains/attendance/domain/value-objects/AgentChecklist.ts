@@ -1,5 +1,5 @@
-import type ID from "./ID";
-import type Rule from "./Rule";
+import type ID from "../../../../shared/domain/value-objects/ID";
+import type Rule from "../../../../shared/domain/value-objects/Rule";
 
 export interface IAgentChecklistVO {
   id: ID;

@@ -1,5 +1,7 @@
-import AgentInput, { type LabelType } from "./AgentInput";
+import AgentInput from "../../../domains/attendance/domain/value-objects/AgentInput";
+import AgentInputName from "../../../domains/attendance/domain/value-objects/AgentInputName";
 import type ID from "./ID";
+import type Label from "./Label";
 
 const MIN_NAME_LENGTH = 3;
 const INCLUDE_NUMBERS = /\d/;
@@ -8,7 +10,7 @@ const INCLUDE_SYMBOLS = /[*/@#$%&]/;
 export default class Name extends AgentInput<string> {
   readonly value: string;
 
-  constructor(id: ID, label: LabelType, name: string = "") {
+  constructor(id: ID, label: Label, name: string = "") {
     super(id, label, name);
 
     // if (!this.validate(value)) {

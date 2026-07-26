@@ -1,12 +1,11 @@
+import type { Context } from "../../../../core/rule-engine/types/context";
+import type ID from "../../../../shared/domain/value-objects/ID";
 import type { Status } from "../types/status";
-import type { BasePassengerValues } from "../models/strategy.types";
-import type { LogType } from "../types/log";
-import type { Context } from "../../../core/rule-engine/types/context";
-import type ID from "../../../shared/value-objects/ID";
+import type { LogType } from "./log";
 
 export interface FlowState {
   currentCategory: string;
-  values: Record<string, string> & Partial<BasePassengerValues>;
+  values: Record<string, string>;
   context: Context;
   status: Status;
   logs: LogType[];

@@ -1,5 +1,5 @@
-import type { TagColor } from "../domain/types/TagColor";
-import type ID from "./ID";
+import type { TagColor } from "../../../../shared/domain/types/TagColor";
+import type ID from "../../../../shared/domain/value-objects/ID";
 
 export interface IAgentLinkVO {
   id: ID;

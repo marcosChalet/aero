@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import { iconRegistry } from "../../infrastructure/iconRegistry";
+import { iconRegistry } from "../../../infrastructure/iconRegistry";
 
 interface IconProps {
   id: string;

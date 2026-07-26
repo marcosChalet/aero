@@ -3,7 +3,7 @@ export class Email {
 
   private constructor(email: string) {
     this._value = email;
-    Object.freeze(this); // Garante imutabilidade em tempo de execução
+    Object.freeze(this);
   }
 
   public static create(email: string): Email {

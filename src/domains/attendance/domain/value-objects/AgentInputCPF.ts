@@ -1,5 +1,6 @@
-import AgentInput, { type LabelType } from "./AgentInput";
-import type ID from "./ID";
+import type ID from "../../../../shared/domain/value-objects/ID";
+import type Label from "../../../../shared/domain/value-objects/Label";
+import AgentInput from "./AgentInput";
 
 const NOT_NUMBERS = /\D/g;
 const NUM_DIGITS_CPF = 11;
@@ -9,7 +10,7 @@ const CPF_MASK = "$1.$2.$3-$4";
 export default class AgentInputCPF extends AgentInput<string> {
   private readonly _value: string;
 
-  constructor(id: ID, label: LabelType, cpf: string = "") {
+  constructor(id: ID, label: Label, cpf: string = "") {
     super(id, label, cpf);
 
     // if (!cpf) throw new Error("CPF é obrigatório");
