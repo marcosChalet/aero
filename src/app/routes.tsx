@@ -1,17 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import type { RouteObject } from "react-router-dom";
-import AdminPage from "../admin/apresentation/pages/AdminPage";
+import AdminPage from "./admin/page";
 
-const Assistant = lazy(
-  () => import("../agentPanel/apresentation/pages/Assistant"),
-);
-const TeamLeadPage = lazy(
-  () => import("../teamLead/apresentation/pages/TeamLeadPage"),
-);
-const DashboardTL = lazy(
-  () => import("../teamLead/apresentation/pages/DashboardTL"),
-);
+const Assistant = lazy(() => import("./agent/page"));
+const TeamLeadPage = lazy(() => import("./team-lead/page"));
+const DashboardTL = lazy(() => import("./team-lead/dashboard"));
 
 export const routes: RouteObject[] = [
   {

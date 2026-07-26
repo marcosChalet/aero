@@ -1,4 +1,4 @@
-import { RuleEngineError } from "../erros/RuleEngineError";
+import { RuleEngineError } from "../errors/RuleEngineError";
 import type { Context } from "../types/context";
 
 export function evaluate(expression: string, context: Context): boolean {
