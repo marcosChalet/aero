@@ -6,9 +6,9 @@ import {
 } from "react-router-dom";
 import { routes } from "./routes";
 import { Suspense } from "react";
-import Loading from "../teamLead/apresentation/components/Loading";
 
 import "./App.css";
+import Loading from "../shared/presentation/components/ui/Loading";
 
 function renderRoutes(routes: RouteObject[]) {
   return routes.map((route, i) => (
