@@ -44,7 +44,7 @@ export default function ServiceMainFlow() {
               id={checkItem.id.value}
             />
             <label htmlFor={checkItem.id.value} className="3xl:text-lg ml-2">
-              {checkItem.label}
+              {checkItem.label.value}
             </label>
           </div>
         ))}
@@ -58,7 +58,7 @@ export default function ServiceMainFlow() {
             onClick={() => setAsCopiedScript(script.id)}
           >
             <p className="3xl:text-lg h-full w-full max-w-11/12">
-              {script.label}
+              {script.label.value}
             </p>
             <ClipboardWithIcon
               className="3xl:h-7 3xl:w-7 absolute top-1/2 right-0 mr-2 h-6 w-6 -translate-y-1/2 cursor-pointer bg-blue-200 hover:bg-[#2C048C]!"
