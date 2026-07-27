@@ -17,6 +17,7 @@ import {
 } from "../../infrastructure/bootstrap/agent-bootstrap";
 import ID from "../../../../shared/domain/value-objects/ID";
 import Rule from "../../../../shared/domain/value-objects/Rule";
+import Label from "../../../../shared/domain/value-objects/Label";
 
 export default function useAgentSetup() {
   const { currentCategory } = useFlowStore();
@@ -43,7 +44,11 @@ export default function useAgentSetup() {
       mockDbResponseLATAM
         .find((item) => item.id === currentCategory)
         ?.inputs.map((i) =>
-          inputFactory.create(i.inputRegistryParam, new ID(i.id), i.label),
+          inputFactory.create(
+            i.inputRegistryParam,
+            new ID(i.id),
+            new Label(i.label),
+          ),
         ) ?? [],
     );
 
@@ -54,7 +59,7 @@ export default function useAgentSetup() {
           checklistFactory.create(
             "checklist_item",
             new ID(c.id),
-            c.label,
+            new Label(c.label),
             new Rule(c.rule),
           ),
         ) ?? [],
@@ -67,7 +72,7 @@ export default function useAgentSetup() {
           alertFactory.create(
             "alert_item",
             new ID(a.id),
-            a.label,
+            new Label(a.label),
             new Rule(a.rule),
           ),
         ) ?? [],
@@ -77,7 +82,12 @@ export default function useAgentSetup() {
       mockDbResponseLATAM
         .find((item) => item.id === currentCategory)
         ?.scripts.map((s) =>
-          scriptFactory.create("script_item", new ID(s.id), s.label, s.content),
+          scriptFactory.create(
+            "script_item",
+            new ID(s.id),
+            new Label(s.label),
+            s.content,
+          ),
         ) ?? [],
     );
 

@@ -1,22 +1,22 @@
 import type ID from "../../../../shared/domain/value-objects/ID";
+import type Label from "../../../../shared/domain/value-objects/Label";
 
-type LabelType = string;
 type ContentType = string;
 
 export interface IAgentScriptVO {
   id: ID;
-  label: LabelType;
+  label: Label;
   content: ContentType;
   getContent: () => string;
 }
 
 export default class AgentScript implements IAgentScriptVO {
   readonly id: ID;
-  readonly label: LabelType;
+  readonly label: Label;
   readonly content: ContentType;
   private _copied: boolean;
 
-  constructor(id: ID, label: LabelType, content: ContentType) {
+  constructor(id: ID, label: Label, content: ContentType) {
     this.id = id;
     this.label = label;
     this.content = content;
